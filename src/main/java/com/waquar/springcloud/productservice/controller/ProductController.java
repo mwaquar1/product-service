@@ -26,12 +26,12 @@ public class ProductController {
     @Value("${coupon-service.url}")
     String couponServiceUrl;
 
-    @RequestMapping("/add-product")
+    @PostMapping("/add-product")
     public ResponseEntity<Product> addProduct(@RequestBody Product product){
         return ResponseEntity.ok(productRepo.save(product));
     }
 
-    @RequestMapping("get-product/{id}")
+    @GetMapping("get-product/{id}")
     public ResponseEntity<ProductDTO> getProduct(@PathVariable("id") Long id,
                                                  @RequestParam(required = false) String coupon){
         Product product = productRepo.findById(id).get();
