@@ -4,10 +4,14 @@ import com.waquar.springcloud.productservice.dto.CouponDTO;
 import com.waquar.springcloud.productservice.dto.ProductDTO;
 import com.waquar.springcloud.productservice.model.Product;
 import com.waquar.springcloud.productservice.repository.ProductRepository;
+import com.waquar.springcloud.productservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,6 +23,9 @@ public class ProductController {
 
     @Autowired
     ProductRepository productRepo;
+
+    @Autowired
+    UserRepository userRepo;
 
     @Autowired
     RestTemplate restTemplate;
